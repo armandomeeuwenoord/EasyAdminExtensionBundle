@@ -118,7 +118,7 @@ class EmbeddedListHelper
             if (
                 $targetEntityFqcn === $assoc['targetEntity']
                 && $embeddedListFieldName === $assoc['inversedBy']
-                && 1 === count($assoc['joinColumns'])
+                && isset($assoc['joinColumns']) && 1 === count($assoc['joinColumns'])
             ) {
                 $assocFieldPart = 'entity.'.$assoc['fieldName'];
                 $assocIdentifierValue = PropertyAccess::createPropertyAccessor()->getValue(
